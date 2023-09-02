@@ -1,9 +1,12 @@
 const express = require('express');
+const { filtrarProfessores, encontrarProfessor } = require('./controladores/professores');
+
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Página inicial');
-});
+
+app.get('/professores', filtrarProfessores)
+
+app.get('/professores/:id', encontrarProfessor)
 
 app.listen(3000);
